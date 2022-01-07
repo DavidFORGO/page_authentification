@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Page de connexion</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script language ="JavaScript"> 
+        function verif() 
+        { if(document.f.nom.value == "") {
+             alert("Veuillez taper votre nom d'tilisateur!"); 
+             return false;
+             }; 
+            if(document.f.mail.value == "") {
+                 alert("Veuillez entrer votre adresse e-mail!");
+                  return false;
+                 } 
+            if(document.f.mail.value.indexOf('@') == -1) {
+                 alert("Adresse e-mail incorrecte!");
+                  return false; 
+            }
+            if(document.f.mdp.value == "") { 
+                alert("Veuillez taper votre email!"); 
+                return false;
+             }; 
+            var v = 1; 
+            var taille =document.f.mdp.value.length; 
+            for(i=0;i<taille;++i) 
+            {if(document.f.mdp.value.charAt(i) < "0" || taille!=8) v = -1;} 
+            if(v == -1) {alert("Le mot de passe doit contenir huit(08) caractère!"); return false; } 
+
+            
+        } 
+    </script>
+</head>
+<body >
+
+    <form name="f" method="post" action="config.php" >
+        <h4><u>FORMULAIRE D'INSCRIPTION</u></h4>
+        <p>Veullez renseigner les differents champs!</p>
+        <fieldset> <legend> <h2 align="center"><u>INSCRIPTION</u></h2><br> </legend>
+        <div>
+            <label>username:</label>
+            <input type="text" name="nom" id="nom" />
+            <br>
+            <br><label>email:</label>
+            <input type="text" name="mail" id="mail"  />
+            <br>
+            <br> <label>password:</label>
+            <input type="password" name="mdp" id="mdp" />
+            <br>
+            <br><label>numero:</label>
+            <input type="text" name="numero" id="numero" />
+            <p>
+            <input type="submit" name="Submit" id="Submit" value="Submit" onclick="verif()"/>
+            </p>
+        </div>
+        </fieldset>
+        <p>Les champs précédés de (*) sont obligatoires</p>
+    </form>
+</body>
+</html>
